@@ -233,6 +233,47 @@ double Vector2::angleTo(const Vector2& other) const {
     return std::acos(dot(other)/(l*lb));
 }
 
+/* VECTOR PROJECTION:
+ *
+ * Projects vector A onto the direction of vector B.
+ * Geometrically, it represents the part of A that points
+ * in the same (or opposite) direction as B.
+ *
+ * Scalar projection (length along B):
+ *
+ *                  A · B
+ *      comp_B(A) = -------
+ *                   ||B||
+ *
+ * To turn that scalar into a vector, we multiply it by the
+ * unit vector of B:
+ *
+ *                  B
+ *      B_unit = ---------
+ *                ||B||
+ *
+ * Therefore:
+ *
+ *                      A · B
+ *      proj_B(A) = ------------ * B
+ *                     ||B||^2
+ *
+ * The resulting vector is always parallel to B.
+ *
+ * NOTE: B cannot be the zero vector because ||B|| = 0 would
+ * cause a division by zero.
+ */
+
+Vector2 Vector2::project(const Vector2& other) const {
+    double l2b = other.length2();
+    if (l2b == 0.0) {
+        throw std::runtime_error("Cannot use vector [0,0]");
+    }
+    return other * (dot(other) / l2b);
+}
+
+
+
 Vector2 Vector2::normalized() const {
     if (x == 0.0 && y == 0.0) {
         throw std::runtime_error("Cannot normalize vector [0,0]");

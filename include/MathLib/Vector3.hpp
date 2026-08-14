@@ -69,6 +69,10 @@ class Vector3 {
     // VECTOR OPS
     double dot(const Vector3& other) const;
     Vector3 cross(const Vector3& other) const;
+    // ANGLE BETWEEN VECTORS
+    double angleTo(const Vector3& other) const;
+    // PROJECTION
+    Vector3 project(const Vector3& other) const;
     Vector3 normalized() const;
     Vector3& normalize();
 

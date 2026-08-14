@@ -7,6 +7,7 @@
 #ifndef CPPMATHLIB_VECTOR2_HPP // Significa: if not defined CPPMATHLIB_VECTOR2_HPP
 #define CPPMATHLIB_VECTOR2_HPP // La define
 #include <initializer_list> // Para usar std::initializer_list<>
+#include <vector>
 
 class Vector2 {
 public:
@@ -79,6 +80,9 @@ public:
 
 	// ANGLE BETWEEN VECTORS
 	double angleTo(const Vector2& other) const;
+
+	// PROJECTION
+	Vector2 project(const Vector2& other) const;
 
 	// NORMALIZE
 	Vector2 normalized() const;
