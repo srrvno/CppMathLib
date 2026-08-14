@@ -8,7 +8,6 @@ void spc(int n=1) {
     for (int i = 0; i < n; i++) {
         cout << endl;
     }
-
 }
 
 int main()
@@ -581,6 +580,10 @@ int main()
     {
         cout << "Exception caught: " << e.what() << endl;
     }
+
+    spc();
+    double angle = v1.angleTo(v2);
+    cout << "Angle v1.angleTo(v2) :" << angle << endl;
 
 
     return 0;

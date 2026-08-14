@@ -77,6 +77,9 @@ public:
 	// CROSS PRODUCT
 	double cross(const Vector2& v) const;
 
+	// ANGLE BETWEEN VECTORS
+	double angleTo(const Vector2& other) const;
+
 	// NORMALIZE
 	Vector2 normalized() const;
 	Vector2& normalize();

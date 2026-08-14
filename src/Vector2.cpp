@@ -195,6 +195,44 @@ double Vector2::cross(const Vector2& v) const {
     return x*v.y - y*v.x;
 }
 
+/* ANGLE BETWEEN TWO VECTORS:
+ *
+ * The dot product can also be expressed geometrically as:
+ *
+ *      A · B = ||A|| * ||B|| * cos(theta)
+ *
+ * where:
+ *      A · B       -> dot product
+ *      ||A||,||B|| -> lengths (magnitudes) of the vectors
+ *      theta       -> angle between them
+ *
+ * To obtain the angle, first isolate cos(theta):
+ *
+ *                        A · B
+ *      cos(theta) = -----------------
+ *                     ||A|| * ||B||
+ *
+ * Then apply the inverse cosine (arccos) to both sides:
+ *
+ *      theta = arccos((A · B) / (||A|| * ||B||))
+ *
+ * arccos() is the inverse function of cos(): if cos(theta) = x,
+ * then theta = arccos(x).
+ *
+ * NOTE: neither vector can be the zero vector, since its length is 0
+ * and this would cause a division by zero.
+ */
+
+double Vector2::angleTo(const Vector2& other) const {
+    double l = length();
+    double lb = other.length();
+
+    if (lb == 0.0 || l == 0.0) {
+        throw std::runtime_error("Cannot use vector [0,0]");
+    }
+    return std::acos(dot(other)/(l*lb));
+}
+
 Vector2 Vector2::normalized() const {
     if (x == 0.0 && y == 0.0) {
         throw std::runtime_error("Cannot normalize vector [0,0]");
