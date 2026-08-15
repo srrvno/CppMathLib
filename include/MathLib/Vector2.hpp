@@ -94,5 +94,22 @@ public:
 	bool isApprox(const Vector2& v, double epsilon=0.000001) const;
 };
 
+Vector2 operator+(double scalar, const Vector2& v);
+
+Vector2 operator-(double scalar, const Vector2& v);
+
+Vector2 operator*(double scalar, const Vector2& v);
+
+Vector2 operator/(double scalar, const Vector2& v);
 
 #endif //CPPMATHLIB_VECTOR2_HPP
+
+
+
+
+
+
+
+
+
+

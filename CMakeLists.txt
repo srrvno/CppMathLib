@@ -9,6 +9,7 @@ project(CppMathLib)
 add_library(MathLib STATIC
             src/Vector2.cpp
             src/Vector3.cpp
+            src/Matrix2.cpp
 )
 
 # Adding directories to the library target to make the compiler get to the header files
@@ -48,6 +49,16 @@ add_executable(Vector3_demo
 
 # Linking the executable to the library for it to be able to use it
 target_link_libraries(Vector3_demo
+        PRIVATE
+        MathLib)
+
+# Adding executable for Matrix2 demo
+add_executable(Matrix2_demo
+        examples/Matrix2_demo.cpp
+)
+
+# Linking the executable to the library for it to be able to use it
+target_link_libraries(Matrix2_demo
         PRIVATE
         MathLib)
 

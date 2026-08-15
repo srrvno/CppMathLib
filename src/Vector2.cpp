@@ -304,7 +304,24 @@ bool Vector2::isApprox(const Vector2& v, double epsilon) const {
     return std::abs(x - v.x)< epsilon && std::abs(y - v.y) < epsilon;
 }
 
+Vector2 operator+(const double scalar, const Vector2& v) {
+    return v+scalar;
+}
 
+Vector2 operator-(const double scalar, const Vector2& v) {
+    return (v-scalar)*-1;
+}
+
+Vector2 operator*(const double scalar, const Vector2& v) {
+    return v*scalar;
+}
+
+Vector2 operator/(const double scalar, const Vector2& v) {
+    if (v.x == 0.0 || v.y == 0.0) {
+        throw std::runtime_error("Cannot divide by zero");
+    }
+    return Vector2{scalar/v.x,scalar/v.y};
+}
 
 
 

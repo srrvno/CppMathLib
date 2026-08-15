@@ -312,6 +312,24 @@ bool Vector3::isApprox(const Vector3& other, double epsilon) const {
     return (std::abs(this->x - other.x) < epsilon) && (std::abs(this->y - other.y) < epsilon) && (std::abs(this->z - other.z) < epsilon);
 }
 
+Vector3 operator+(const double scalar, const Vector3& v) {
+    return v+scalar;
+}
+
+Vector3 operator-(const double scalar, const Vector3& v) {
+    return (v-scalar)*-1;
+}
+
+Vector3 operator*(const double scalar, const Vector3& v) {
+    return v*scalar;
+}
+
+Vector3 operator/(const double scalar, const Vector3& v) {
+    if (v.x == 0.0 || v.y == 0.0 || v.z == 0.0) {
+        throw std::runtime_error("Cannot divide by zero");
+    }
+    return Vector3{scalar/v.x,scalar/v.y};
+}
 
 
 

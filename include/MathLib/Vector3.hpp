@@ -82,4 +82,13 @@ class Vector3 {
     bool isApprox(const Vector3& other, double epsilon = 0.0000001) const;
 };
 
+Vector3 operator+(double scalar, const Vector3& v);
+
+Vector3 operator-(double scalar, const Vector3& v);
+
+Vector3 operator*(double scalar, const Vector3& v);
+
+Vector3 operator/(double scalar, const Vector3& v);
+
+
 #endif //CPPMATHLIB_VECTOR3_HPP
