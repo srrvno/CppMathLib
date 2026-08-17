@@ -27,6 +27,9 @@ class Matrix2 {
     // Destructor
     ~Matrix2();
 
+    // Print
+    void print() const;
+
     // Operator []
     double (&operator[](size_t i))[2];
     const double (&operator[](size_t i) const)[2];
@@ -58,8 +61,10 @@ class Matrix2 {
     Matrix2 operator/(const Matrix2& other) const;
     Matrix2& operator/=(const Matrix2& other);
 
-
-
+    // MATRIX OPS
+    double det() const;
+    Matrix2 T() const;
+    Matrix2& transpose();
 
 
 };
